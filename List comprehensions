@@ -4,11 +4,11 @@ z = int(input())
 n = int(input())
 list = []
 i = 0
-for i in range(0, n):
+for i in range(0, x+1):
     j = 0
-    for j in range(0, n):
+    for j in range(0, y+1):
         k = 0
-        for k in range(0, n):
+        for k in range(0, z+1):
             nestlist = []
             if (0 <= i <= x and 0 <= j <= y and 0 <= k <= z) and (i+j+k != n):
                 nestlist.append(i)
@@ -17,3 +17,4 @@ for i in range(0, n):
                 list.append(nestlist)
             else:
                 pass
+print(list)
