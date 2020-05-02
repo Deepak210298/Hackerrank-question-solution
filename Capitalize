@@ -1,0 +1,16 @@
+def solve(s):
+    captilize = ""
+    for i in range(0,len(s)):
+        if s[i] != " " and s[i-1] == " ":
+            captilize += s[i].upper()
+        else:
+            captilize += s[i]
+        captilize = captilize[0].upper() + captilize[1:]
+    return captilize
+
+if __name__ == '__main__':
+
+    s = input()
+
+    result = solve(s)
+    print(result)
