@@ -1,0 +1,25 @@
+n = int(input())
+list = []
+for i in range(0,n):
+    word = str(input())
+    list.append(word)
+i = 0
+cnt = 0
+k = ""
+for i in range(0, n):
+    for word in list:
+        k += list[i]
+        if len(k) > len(word):
+            k = k[1:]
+        if k == word:
+            cnt += 1
+print(cnt)
+cnt = 0
+for i in range(0,n):
+    if i == n-1:
+        break
+    cnt = 0
+    for word in list:
+        if list[i] == word:
+            cnt += 1
+    print(cnt)
