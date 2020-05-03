@@ -1,0 +1,19 @@
+n = int(input())
+A = []
+for i in range(0,n):
+    A.append(int(input()))
+    if -100 >= A[i] >= 100:
+        A.remove(A[i])
+        print("Enter number in range\t")
+        A.append(int(input()))
+j = 0
+for j in range(j,n):
+    k = j+1
+    for k in range(k,n):
+        if A[j] <= A[k]:
+            b = A[j]
+            A[j] = A[k]
+            A[k] = b
+        else:
+            pass
+print(A[1]) 
