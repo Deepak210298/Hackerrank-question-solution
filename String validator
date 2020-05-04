@@ -1,0 +1,12 @@
+if __name__ == '__main__':
+    s = input()
+    if s.isalnum():
+        print(True)
+    else:
+        print(False)
+    for i in range(0,len(s)):
+        if s[i].isalpha() or s[i].isdigit() or s[i].islower() or s[i].isupper():
+            print(True)
+            break
+        else:
+            print(False)
