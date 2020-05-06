@@ -1,9 +1,13 @@
 if __name__ == '__main__':
     s = input()
-    if s.isalnum():
-        print(True)
-    else:
-        print(False)
+    for i in range(0,len(s)):
+        if (s[i] >= 'a' and s[i] <= 'z') or (s[i] >= 'A' and s[i] <= 'Z') or (s[i] >= '0' and s[i] <= '9'):
+            print(True)
+            break
+        elif (i == len(s) - 1) and (s[i].isalnum() != True):
+            print(False)
+        else:
+            pass
     for i in range(0,len(s)):
         if s[i].isalpha():
             print(True)
@@ -36,4 +40,3 @@ if __name__ == '__main__':
             print(False)
         else:
             pass
-
