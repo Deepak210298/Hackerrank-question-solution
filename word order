@@ -4,16 +4,17 @@ for i in range(0,n):
     word = str(input())
     list.append(word)
 i = 0
-cnt = 0
+cnt = 1
 k = ""
-for i in range(0, n):
-    for word in list:
-        k += list[i]
-        if len(k) > len(word):
-            k = k[1:]
-        if k == word:
+for i in range(0,1):
+    for j in range(0,n):
+        if list[i] != list[j]:
             cnt += 1
-print(cnt)
+        else:
+            pass
+print(cnt)            
+        
+
 cnt = 0
 for i in range(0,n):
     if i == n-1:
@@ -22,4 +23,4 @@ for i in range(0,n):
     for word in list:
         if list[i] == word:
             cnt += 1
-    print(cnt)
+    print(cnt, end=" ")
