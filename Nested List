@@ -1,0 +1,21 @@
+n = int(input())
+report = []
+for i in range(0,n):
+    name = str(input())
+    score = int(input())
+    student = []
+    student.append(name)
+    student.append(score)
+    report.append(student)
+    
+m,j,k = 0
+for m in range(0,n):
+    for k in report[m][1]:
+        j = k+1
+        for j in range(report[0][1], report[n][1]):
+            if report[k][1] >= report[j][1]:
+                b = report[k]
+                report[k] = report[j]
+                report[j] = b
+            else:
+                pass
