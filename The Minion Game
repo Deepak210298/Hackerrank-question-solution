@@ -1,17 +1,58 @@
-def minion_game(string):
-    # your code goes here
+def minion_game(string):    
     score = 0
     words = ""
     stuart = {}
     kevin = {}
-    vowel = [A,E,I,O,U]     
-    for i in range(0,len(string)):
-        score = 0
-        words += string[i]
-        score += 1
-        stuart[words] = score  
-    print(stuart)
+    kevin_letter = []
+    stuart_letter = []
+    for letter in string:
+        if letter >= 'A' and letter <= 'Z':
+            if letter == 'A' or letter == 'E' or letter == 'I' or letter == 'O' or letter == 'U':
+                if letter in kevin_letter:
+                    pass
+                else:
+                    kevin_letter.append(letter)
+            else:
+                if letter in stuart_letter:
+                    pass
+                else:
+                    stuart_letter.append(letter)               
+        else:
+            pass
+
+    for letter in kevin_letter:
+        kevin_total_score = 0
+        index_of_letter =  string.index(letter)
+        if letter >= 'A' and letter <= 'Z':
+            for i in range(index_of_letter, len(string)):
+                words += string[i]
+                score = string.count(words)
+                kevin[words] = score
+                kevin_total_score += score
+        else:
+            pass
+        
+    score = 0
+    stuart_total_score = 0
+    for letter in stuart_letter:
+        index_of_letter =  string.index(letter)
+        words = ""
+        if letter >= 'A' and letter <= 'Z':
+            for i in range(index_of_letter, len(string)):
+                words += string[i]
+                score = string.count(words)
+                stuart[words] = score
+                stuart_total_score += score
+        else:
+            pass
     
+    if kevin_total_score > stuart_total_score:
+        print("Kevin", kevin_total_score)
+    elif stuart_total_score > kevin_total_score:
+        print("Stuart", stuart_total_score)
+    else:
+        print("Draw")        
+        
 if __name__ == '__main__':
     s = input()
     minion_game(s)
