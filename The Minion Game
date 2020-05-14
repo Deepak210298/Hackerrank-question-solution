@@ -3,21 +3,15 @@ def minion_game(string):
     score = 0
     words = ""
     stuart = {}
-    #kevin = {}
-    for letter in string:
-        if letter >= 'A' and letter <= 'Z':    
-            if letter == 'A' or letter == 'E' or letter == 'I' or letter == 'O' or letter == 'U':
-                pass
-            else:
-                for i in range(0,len(string)):
-                    #for j in range(0,i+1):
-                    words += letter
-                    if words in string:
-                        score += 1
-                    stuart[words] = score
-        else:
-            pass 
+    kevin = {}
+    vowel = [A,E,I,O,U]     
+    for i in range(0,len(string)):
+        score = 0
+        words += string[i]
+        score += 1
+        stuart[words] = score  
     print(stuart)
+    
 if __name__ == '__main__':
     s = input()
     minion_game(s)
