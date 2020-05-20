@@ -1,15 +1,17 @@
-m = int(input())
-M = set(input().split())
-n = int(input())
-N = set(input().split())
-    
-for k in M:
-    if k in N:
-        pass
-    else:
-        print(k)
-for j in N:
-    if j in M:
-        pass
-    else:
-        print(j)
+def average(array):
+    # your code goes here
+    a = set()
+    sum = 0
+    for i in range(0,len(array)):
+        a.add(array[i])
+    for x in a:
+        sum += x
+    result = sum/len(a)
+    return result
+
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
