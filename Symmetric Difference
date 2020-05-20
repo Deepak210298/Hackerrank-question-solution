@@ -1,0 +1,23 @@
+m = int(input())
+list = []
+M = set()
+for i in range(0, m):
+    list.append(int(input()))
+    M.add(list[i])
+n = int(input())
+N = set()
+for i in range(0, n):
+    list.append(int(input()))
+    N.add(list[i])
+    
+for k in M:
+    if k in N:
+        print(k)
+    else:
+        pass
+        
+for j in N:
+    if j in N:
+        print(j)
+    else:
+        pass
