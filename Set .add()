@@ -1,0 +1,18 @@
+N = int(input())
+country = []
+country_stamp = set()
+for i in range(0,N):
+    country.append(str(input()))
+    country_stamp.add(country[i])
+
+total_distinct_stamp = len(country_stamp)
+for stamp in country_stamp:
+    cnt = 0
+    for j in country_stamp:
+        if stamp == j:
+            cnt += 1
+        else:
+            pass
+    if cnt > 1:
+        total_distinct_stamp = total_distinct_stamp - 1
+print(total_distinct_stamp)
