@@ -1,0 +1,8 @@
+X = int(input())
+shoe_size = map(int, input().split())
+N = int(input())
+shoe_collection = {}
+shoe_price = 0
+for i in range(0, N):
+    shoe_price = int(input())
+    shoe_collection[shoe_size] = shoe_price
