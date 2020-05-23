@@ -1,21 +1,26 @@
-n = int(input())
-report = []
-for i in range(0,n):
-    name = str(input())
-    score = int(input())
-    student = []
-    student.append(name)
-    student.append(score)
-    report.append(student)
+if __name__ == '__main__':
+    n = int(input())
+    report = []
+    for i in range(0,n):
+        student = []
+        name = str(input())
+        socre = float(input())
+        student.append(name)
+        student.append(socre) 
+        report.append(student)
     
-m,j,k = 0
-for m in range(0,n):
-    for k in report[m][1]:
-        j = k+1
-        for j in range(report[0][1], report[n][1]):
-            if report[k][1] >= report[j][1]:
-                b = report[k]
-                report[k] = report[j]
-                report[j] = b
+    for i in range(0,n):
+        if i == n-1:
+            break
+        for j in range(1, len(student)):
+            if report[i][j] > report[i+1][j]:
+                marks = report[i+1][j]
+                report[i+1][j] = report[i][j]
+                report[i][j] = marks
             else:
                 pass
+    
+    marks = []
+    for i in range(0,n):
+        marks.append(report[i][1])
+    print(report)
