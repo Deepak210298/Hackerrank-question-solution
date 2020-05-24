@@ -3,23 +3,23 @@ if __name__ == '__main__':
     list = []
     
     for j in range(0,N):
-        cmd = str(input())
-        i = int(input())
-        e = int(input())
-        if cmd == 'insert':
+        cmd = input()
+        if cmd.lower() == 'insert':
+            i, e = map(int, input().split())
             list.insert(i,e)
-        elif cmd == 'print':
+        elif cmd.lower() == 'print':
             print(list)
-        elif cmd == 'remove':
+        elif cmd.lower() == 'remove':
+            e = int(input())
             list.remove(e)
-        elif cmd == 'append':
+        elif cmd.lower() == 'append':
+            e = int(input())
             list.append(e)
-        elif cmd == 'sort':
+        elif cmd.lower() == 'sort':
             list.sort()
-        elif cmd == 'pop':
+        elif cmd.lower() == 'pop':
             list.pop()
-        elif cmd == 'reverse':
+        elif cmd.lower() == 'reverse':
             list.reverse()
         else:
             pass
-        print(list)
