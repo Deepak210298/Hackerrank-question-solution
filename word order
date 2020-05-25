@@ -1,26 +1,20 @@
 n = int(input())
-list = []
+word_order = {}
 for i in range(0,n):
-    word = str(input())
-    list.append(word)
-i = 0
-cnt = 1
-k = ""
-for i in range(0,1):
-    for j in range(0,n):
-        if list[i] != list[j]:
-            cnt += 1
-        else:
-            pass
-print(cnt)            
-        
+    word = input()
+    score = 1
+    if word not in word_order.keys():
+        word_order[word] = score
+    elif word in word_order.keys():
+        score += 1
+        word_order[word] = score
+    else:
+        pass
 
 cnt = 0
-for i in range(0,n):
-    if i == n-1:
-        break
-    cnt = 0
-    for word in list:
-        if list[i] == word:
-            cnt += 1
-    print(cnt, end=" ")
+for n_word in word_order.keys():
+    cnt += 1
+print(cnt)
+
+for n_occurene in word_order.values():
+    print(n_occurene,end=" ")
