@@ -1,19 +1,20 @@
-n = int(input())
-A = []
-for i in range(0,n):
-    A.append(int(input()))
-    if -100 >= A[i] >= 100:
-        A.remove(A[i])
-        print("Enter number in range\t")
-        A.append(int(input()))
-j = 0
-for j in range(j,n):
-    k = j+1
-    for k in range(k,n):
-        if A[j] <= A[k]:
-            b = A[j]
-            A[j] = A[k]
-            A[k] = b
-        else:
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    for j in range(0,n):
+        k = j+1
+        for k in range(k,n):
+            if arr[j] < arr[k]:
+                b = arr[j]
+                arr[j] = arr[k]
+                arr[k] = b
+            else:
+                pass
+                
+    for j in range(0,n):
+        if arr[j+1] == arr[j]:
             pass
-print(A[1]) 
+        else:
+            runner_up = arr[j+1]
+            break
+    print(runner_up)
