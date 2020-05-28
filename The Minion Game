@@ -9,60 +9,68 @@ def minion_game(string):
         if letter >= 'A' and letter <= 'Z':
             if letter == 'A' or letter == 'E' or letter == 'I' or letter == 'O' or letter == 'U':
                 if letter in kevin_letter:
-                    pass
+                    kevin_letter.append(letter)
                 else:
                     kevin_letter.append(letter)
             else:
                 if letter in stuart_letter:
-                    pass
+                    stuart_letter.append(letter)
                 else:
                     stuart_letter.append(letter)               
         else:
             pass
         
-            
-    for letter in kevin_letter:
-        kevin_total_score = 0
-        index_of_letter =  string.index(letter)
-        if letter >= 'A' and letter <= 'Z':
-            for i in range(index_of_letter, len(string)):
-                words += string[i]
-                cnt = 0
-                for i in range(0, len(string)):
-                    if words in string[i:len(words) + i]:
-                        cnt += 1
-                score = cnt
-                kevin[words] = score
-                kevin_total_score += score
-        else:
-            pass
-    print(kevin)
-        
-    score = 0
+    temp = string
     stuart_total_score = 0
-    for letter in stuart_letter:
-        index_of_letter =  string.index(letter)
+    for i in range(0, len(stuart_letter)):
         words = ""
-        if letter >= 'A' and letter <= 'Z':
-            for i in range(index_of_letter, len(string)):
-                words += string[i]
-                cnt = 0
-                for i in range(0, len(string)):
-                    if words in string[i:len(words) + i]:
-                        cnt += 1
-                score = cnt
-                stuart[words] = score
-                stuart_total_score += score
-        else:
-            pass
-    
+        for j in range(0,len(temp)):            
+            if stuart_letter[i] == temp[j]:
+                index_of_letter = j
+                break
+            else:
+                pass
+        for k in range(index_of_letter, len(temp)):
+            words += temp[k]
+            cnt = 0
+            for j in range(0, len(temp)):
+                if words in temp[j:len(words) + j]:
+                    cnt += 1
+            score = cnt
+            stuart[words] = score
+            stuart_total_score += score
+        temp = temp[index_of_letter + 1:]
+           
+    k_temp = string
+    kevin_total_score = 0
+    for i in range(0, len(kevin_letter)):
+        words = ""
+        for j in range(0,len(k_temp)):            
+            if kevin_letter[i] == k_temp[j]:
+                index_of_letter = j
+                break
+            else:
+                pass
+        for k in range(index_of_letter, len(k_temp)):
+            words += k_temp[k]
+            cnt = 0
+            for j in range(0, len(k_temp)):
+                if words in k_temp[j:len(words) + j]:
+                    cnt += 1
+            score = cnt
+            kevin[words] = score
+            kevin_total_score += score
+        k_temp = k_temp[index_of_letter + 1:]
+        
+    print(kevin,kevin_total_score, stuart, stuart_total_score)
+
     if kevin_total_score > stuart_total_score:
         print("Kevin", kevin_total_score)
     elif stuart_total_score > kevin_total_score:
         print("Stuart", stuart_total_score)
     else:
-        print("Draw")        
-        
+        print("Draw")     
+       
 if __name__ == '__main__':
     s = input()
     minion_game(s)
