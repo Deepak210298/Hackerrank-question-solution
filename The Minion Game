@@ -1,6 +1,8 @@
 def Minion_game(string):
     kevin = {}
     stuart = {}
+    kevin_total_score = 0
+    stuart_total_score = 0
     for letter in range(0,len(string)):
         kevin_word = ""
         stuart_word = ""
@@ -8,32 +10,45 @@ def Minion_game(string):
             for i in range(letter,len(string)):
                 kevin_word += string[i]
                 k_count = 0
-                for j in range(letter, len(string)):
-                    if kevin_word in string[j:len(kevin_word) + j]:
-                        print(string[j:len(kevin_word) + j])
-                        k_count += 1
-                        print(k_count)
-                    else:
-                        pass
+                if kevin_word not in kevin:
+                    for j in range(letter, len(string)):
+                        if kevin_word in string[j:len(kevin_word) + j]:                            
+                            k_count += 1                            
+                        else:
+                            pass
                     kevin_score = k_count
-                kevin[kevin_word] = kevin_score
+                    kevin[kevin_word] = kevin_score
+                    kevin_total_score += kevin_score
+                else:
+                    pass                
         elif string[letter] != 'A' or string[letter] != 'E' or string[letter] != 'I' or string[letter] != 'O' or string[letter] != 'U':
             for k in range(letter, len(string)):
                 stuart_word += string[k]
                 s_count = 0
-                for m in range(letter,len(string)):
-                    if stuart_word in string[m:len(stuart_word)+m]:
-                        print(string[m:len(stuart_word)+m])
-                        s_count += 1
-                        print(s_count)
-                    else:
-                        pass
+                if stuart_word not in stuart:
+                    for m in range(letter,len(string)):
+                        if stuart_word in string[m:len(stuart_word)+m]:
+                            
+                            s_count += 1
+                            print(s_count)
+                        else:
+                            pass
                     stuart_score = s_count
-                stuart[stuart_word] = stuart_score
+                    stuart[stuart_word] = stuart_score
+                    stuart_total_score += stuart_score
+                else:
+                    pass
         else:
             pass
         
-    print(stuart,kevin)    
+    
+    if kevin_total_score > stuart_total_score:
+        print("Kevin", kevin_total_score)
+    elif stuart_total_score > kevin_total_score:
+        print("Stuart", stuart_total_score)
+    else:
+        print("Draw") 
+       
     
 s = input().upper()
 Minion_game(s)
